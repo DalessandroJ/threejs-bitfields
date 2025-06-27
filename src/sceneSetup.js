@@ -42,7 +42,7 @@ export async function createScene(groundColor = '#333333', renderer) {
     });
     const mesh = new THREE.Mesh(geo, mat);
     mesh.rotation.x = -Math.PI / 2;
-    mesh.position.y = -(GRID_DIM / 2 + 0.5) * CELL_SIZE;
+    mesh.position.y = -GRID_DIM * CELL_SIZE;
     mesh.receiveShadow = true;
     scene.add(mesh);
 

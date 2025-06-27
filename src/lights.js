@@ -25,4 +25,5 @@ export function addLights(scene) {
     sun.shadow.needsUpdate = true; //but do it once
 
     scene.add(sun);
+    scene.userData.sun = sun;
 }
