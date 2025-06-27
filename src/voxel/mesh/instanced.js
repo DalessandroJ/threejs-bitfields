@@ -1,6 +1,6 @@
 // src/instancedMesh.js
 import * as THREE from 'three';
-import { GRID_DIM, CELL_SIZE } from './config.js';
+import { GRID_DIM, CELL_SIZE } from '../../config.js';
 
 export function createInstancedMesh(instances, geometry, material) {
   // 1) Turn on vertexColors + instancing in the stock shader

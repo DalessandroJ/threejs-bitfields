@@ -1,7 +1,7 @@
 // src/camera.js
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GRID_DIM } from './config.js';
+import { GRID_DIM } from '../config.js';
 
 export function createCamera(rendererDom) {
     const cam = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);

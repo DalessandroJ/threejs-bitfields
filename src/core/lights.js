@@ -1,6 +1,6 @@
 // src/lights.js
 import * as THREE from 'three';
-import { GRID_DIM, CELL_SIZE } from './config.js';
+import { GRID_DIM, CELL_SIZE } from '../config.js';
 
 export function addLights(scene) {
     scene.add(new THREE.AmbientLight(0xffffff, 0.3));

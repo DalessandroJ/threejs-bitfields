@@ -1,8 +1,8 @@
 // src/patterns.js
 
-import { randomInt, randomFloat } from './utils.js';
+import { randomInt, randomFloat } from '../../utils/utils.js';
 import { OPS3 } from './bitwise3.js';
-import { GRID_DIM } from './config.js';
+import { GRID_DIM } from '../../config.js';
 
 const C = GRID_DIM / 2;
 

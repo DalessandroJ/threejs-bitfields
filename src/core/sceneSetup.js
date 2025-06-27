@@ -2,7 +2,7 @@
 import * as THREE from 'three';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { PMREMGenerator } from 'three';
-import { GRID_DIM, CELL_SIZE } from './config.js';
+import { GRID_DIM, CELL_SIZE } from '../config.js';
 
 export function createRenderer(backgroundColor = '#202020') {
     const renderer = new THREE.WebGLRenderer({ antialias: true });

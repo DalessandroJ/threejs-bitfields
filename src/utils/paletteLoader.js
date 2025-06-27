@@ -4,7 +4,7 @@ import {
     STATES_RANGE,
     TRANSPARENT_FACTOR,
     PALETTE_JSON
-} from './config.js';
+} from '../config.js';
 
 export async function loadPalettes() {
     const resp = await fetch(PALETTE_JSON);

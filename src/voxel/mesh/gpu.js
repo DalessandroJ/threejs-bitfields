@@ -1,4 +1,4 @@
-// src/gpuVoxelMesh.js
+// src/gpu.js
 import * as THREE from 'three';
 
 export function createGPUVoxelMesh({
