@@ -79,7 +79,7 @@ export function createGPUVoxelMesh({
       uStepSize:    { value: 0.125 },
       uMaxSteps:    { value: 4096 },
       uLightDir:    { value: new THREE.Vector3(0.5,-1,0.7).normalize() },
-      uAmbientTerm: { value: 0.2 },
+      uAmbientTerm: { value: 0.33 },
       uDiffuseTerm: { value: 0.8 },
       uShadowMap:   { value: shadowMap },
       uLightMatrix: { value: lightMatrix },
