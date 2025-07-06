@@ -6,6 +6,7 @@ import { GRID_DIM, CELL_SIZE } from '../config.js';
 
 export function createRenderer(backgroundColor = '#202020') {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(new THREE.Color(backgroundColor));
     renderer.shadowMap.enabled = true;

@@ -35,5 +35,5 @@ export function buildVoxelWorld({
     );
 
     scene.add(mesh);
-    return mesh;
+    return { mesh, patternFn };
 }

@@ -28,7 +28,7 @@ export function minority3(a, b, c) {
 
 /** 1 if exactly one input is 1 */
 export function exactlyOne3(a, b, c) {
-  const sum     = a ^ b ^ c;
+  const sum = a ^ b ^ c;
   const allOnes = a & b & c;
   return sum & ~allOnes;
 }
@@ -53,10 +53,10 @@ export function xnor3(a, b, c) {
   return ~(a ^ b ^ c);
 }
 
-/** 1 if an odd number of PAIRS (a,b),(b,c),(a,c) are both 1 */
-export function oddPair3(a, b, c) {
-  return (a & b) ^ (b & c) ^ (a & c);
-}
+/** 1 if an odd number of PAIRS (a,b),(b,c),(a,c) are both 1 .. might be the same as exactlyTwo3
+// export function oddPair3(a, b, c) {
+//   return (a & b) ^ (b & c) ^ (a & c);
+// }
 
 
 // === Multiplexer / Selection ===
@@ -128,16 +128,6 @@ export function conditionalXorC(a, b, c) {
   return c & (a ^ b);
 }
 
-/** if a=1 return b&c else 0 */
-export function conditionalAndA(a, b, c) {
-  return a & (b & c);
-}
-export function conditionalAndB(a, b, c) {
-  return b & (a & c);
-}
-export function conditionalAndC(a, b, c) {
-  return c & (a & b);
-}
 
 /** if a=1 return b|c else 0 */
 export function conditionalOrA(a, b, c) {
@@ -176,6 +166,48 @@ export function pairwiseXorC(a, b, c) {
   return (c ^ a) | (~c & ~a & b);
 }
 
+// === Experimental / Creative Gates =========================================
+
+/** 1 if one or two inputs are 1 (excludes 000 and 111) */
+export function someButNotAll3(a, b, c) {
+  return (a | b | c) & ~(a & b & c);
+}
+
+/** 1 if all three inputs are identical (000 or 111) */
+export function unanimous3(a, b, c) {
+  return (a & b & c) | (~a & ~b & ~c);
+}
+
+/** Chained implication: (¬a → b) ∧ (¬b → c) */
+export function chainImplication3(a, b, c) {
+  return (~a | b) & (~b | c);
+}
+
+/** Monotone non-increasing:  a ≥ b ≥ c  in Boolean order */
+export function monotoneDec3(a, b, c) {
+  return ~((~a & b) | (~b & c));
+}
+
+/** Equality detectors */
+export const equalAB3 = (a, b, c) => ~(a ^ b);
+export const equalBC3 = (a, b, c) => ~(b ^ c);
+export const equalCA3 = (a, b, c) => ~(c ^ a);
+
+/** 1 if the bits strictly alternate (010 or 101) */
+export const alternation3 = (a, b, c) => (a ^ b) & (b ^ c);
+
+/** Weighted parity:  a ⊕ (b ∧ c) */
+export const weightedParity3 = (a, b, c) => a ^ (b & c);
+
+/** Hybrid gate: (a ∧ b) ⊕ c */
+export const andXorC3 = (a, b, c) => (a & b) ^ c;
+
+/** Difference-vs-OR:  a ⊕ (b ∨ c) */
+export const diffToOr3 = (a, b, c) => a ^ (b | c);
+
+/** (¬a → b) ∧ c   — “implies-then-gate” */
+export const impliesThenC3 = (a, b, c) => ((~a | b) & c);
+
 
 // ———————————————————————————————————————————————————————————
 // Export the array of everything you want to randomly pick
@@ -185,7 +217,7 @@ export const OPS3 = [
   // thresholds
   allTrue3, anyTrue3, majority3, minority3, exactlyOne3, exactlyTwo3,
   // parity
-  parity3, xnor3, oddPair3,
+  parity3, xnor3,
   // mux families
   muxA, muxB, muxC,
   inverseMuxA, inverseMuxB, inverseMuxC,
@@ -193,10 +225,13 @@ export const OPS3 = [
   rotateSelectA, rotateSelectB, rotateSelectC,
   // conditional logic
   conditionalXorA, conditionalXorB, conditionalXorC,
-  conditionalAndA, conditionalAndB, conditionalAndC,
   conditionalOrA, conditionalOrB, conditionalOrC,
   // gates
   nand3, nor3,
   // pairwise
-  pairwiseXorA, pairwiseXorB, pairwiseXorC
+  pairwiseXorA, pairwiseXorB, pairwiseXorC,
+  //experimental
+  someButNotAll3, unanimous3, chainImplication3, 
+  monotoneDec3, equalAB3, equalBC3, equalCA3, 
+  alternation3, weightedParity3, andXorC3, diffToOr3, impliesThenC3
 ];
