@@ -1,4 +1,4 @@
-// src/sceneSetup.js
+// src/core/sceneSetup.js
 import * as THREE from 'three';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { PMREMGenerator } from 'three';

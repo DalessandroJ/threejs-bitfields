@@ -1,4 +1,4 @@
-// src/instancedMesh.js
+// src/voxel/mesh/instancedMesh.js
 import * as THREE from 'three';
 import { GRID_DIM, CELL_SIZE } from '../../config.js';
 

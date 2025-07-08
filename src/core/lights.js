@@ -1,4 +1,4 @@
-// src/lights.js
+// src/core/lights.js
 import * as THREE from 'three';
 import { GRID_DIM, CELL_SIZE } from '../config.js';
 

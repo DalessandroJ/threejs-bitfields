@@ -1,3 +1,5 @@
+// src/voxel/mesh/createVoxelMesh.js
+
 import { createGPUVoxelMesh } from './gpu.js';
 import { createInstancedMesh } from './instanced.js';
 import { USE_GPU_VOXEL_MESH, GRID_DIM, CELL_SIZE } from '../../config.js';

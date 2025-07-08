@@ -1,3 +1,5 @@
+// src/main.js
+
 import * as THREE from 'three';
 import { createRenderer, createScene } from './core/sceneSetup.js';
 import { addLights } from './core/lights.js';

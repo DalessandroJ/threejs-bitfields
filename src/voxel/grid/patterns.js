@@ -1,7 +1,7 @@
-// src/patterns.js
+// src/voxel/grid/patterns.js
 
 import { randomInt, randomFloat } from '../../utils/utils.js';
-import { OPS3 } from './bitwise3.js';
+import { gate3 } from './bitwise3.js';
 import { GRID_DIM } from '../../config.js';
 
 const C = GRID_DIM / 2;
@@ -101,16 +101,22 @@ function choice(arr) {
 // ———————————————————————————————————————————————————————————
 function pickRawPattern() {
     const [, factory] = choice(PATTERN_ENTRIES);
-    const op = choice(OPS3);
-    const raw0 = factory(op);         // defaults handle w & p
+
+    // pick a random 3-input Boolean function (0-255) (0 always sucks tho)
+    const mask = randomInt(1, 255);
+    console.log(mask);
+    const op   = (a, b, c) => gate3(mask, a, b, c);
+
+    const raw0 = factory(op);                    // defaults handle w & p
     const perm = choice(AXIS_PERMS);
 
     // inline permute
     return (x, y, z) => {
-        const a = [x, y, z];
-        return raw0(a[perm[0]], a[perm[1]], a[perm[2]]);
+        const aArr = [x, y, z];
+        return raw0(aArr[perm[0]], aArr[perm[1]], aArr[perm[2]]);
     };
 }
+
 
 // ———————————————————————————————————————————————————————————
 // Export: offsets + mod wrapper

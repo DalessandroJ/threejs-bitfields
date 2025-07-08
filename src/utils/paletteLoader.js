@@ -1,11 +1,8 @@
-// src/paletteLoader.js
+// src/utils/paletteLoader.js
 import { randomInt } from './utils.js';
-import {
-    STATES_RANGE,
-    TRANSPARENT_FACTOR,
-    PALETTE_JSON
-} from '../config.js';
+import { STATES_RANGE, TRANSPARENT_FACTOR, PALETTE_JSON } from '../config.js';
 
+// load all palettes from masterPalettes.json file
 export async function loadPalettes() {
     const resp = await fetch(PALETTE_JSON);
     return await resp.json();
@@ -14,19 +11,18 @@ export async function loadPalettes() {
 export function pickPalette(masterPalettes) {
     const [min, max] = STATES_RANGE;
     const filled = randomInt(min, max);
-    const transparent = Math.floor(
-        Math.random() * (filled * (TRANSPARENT_FACTOR[1] - TRANSPARENT_FACTOR[0])) +
-        filled * TRANSPARENT_FACTOR[0]
+    const transparent = randomInt(
+        Math.floor(filled * TRANSPARENT_FACTOR[0]),
+        Math.floor(filled * TRANSPARENT_FACTOR[1])
     );
 
+    // get all palettes with this many colors
     const list = masterPalettes[filled] || [];
-    const chosen = list.length
-        ? list[randomInt(0, list.length - 1)]
-        : { colors: [] };
-
+    // and pick the palette randomly from that list
+    const chosen = list[randomInt(0, list.length - 1)];
     console.log(`Palette: ${chosen.name}`);
 
-    // **normalize** each entry to start with '#'
+    // make sure each color string in the palette starts with '#'
     const palette = chosen.colors.map(c =>
         c.startsWith('#') ? c : `#${c}`
     );

@@ -1,4 +1,4 @@
-// src/gridGenerator.js
+// src/voxel/grid/gridGenerator.js
 export function generateInstances(dimY, gridDim, patternFn, transparent, palette) {
     const list = [];
     for (let x = 0; x < gridDim; x++) for (let y = 0; y < dimY; y++) for (let z = 0; z < gridDim; z++) {
