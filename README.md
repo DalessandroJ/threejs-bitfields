@@ -14,7 +14,7 @@ Generative voxel art created with bit-wise operations and modular arithmetic. Ca
 
 ## Live demo
 
-https://**dalessandroj**.github.io/**threejs-bitfields**
+[https://**dalessandroj**.github.io/**threejs-bitfields**](https://dalessandroj.github.io/threejs-bitfields)
 
 ---
 
