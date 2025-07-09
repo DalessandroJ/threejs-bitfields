@@ -1,6 +1,6 @@
 # 3D Bitfields
 
-Generative voxel art created with bit-wise operations and modular arithmetic. Can render **millions** of voxels in real time!
+Generative voxel art created with bit-wise operations and modular arithmetic. Can render **millions** of voxels in real time! UI and controls made with React.
 
 <div align="center">
 
