@@ -1,21 +1,33 @@
 // src/core/camera.js
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GRID_DIM } from '../config.js';
+import { GRID_DIMS, CELL_SIZE } from '../config.js';
 
 export function createCamera(rendererDom) {
-    const cam = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-    cam.position.set(GRID_DIM * 1.5, GRID_DIM * 0.1, GRID_DIM * 1.5);
+  const aspect = innerWidth / innerHeight;
+  const cam = new THREE.PerspectiveCamera(75, aspect, 0.1, 1); // far set below
 
-    const controls = new OrbitControls(cam, rendererDom);
-    controls.target.set(0, GRID_DIM * 0.1, 0);
+  // grid extents in world units
+  const sizeX = GRID_DIMS.x * CELL_SIZE;
+  const sizeY = GRID_DIMS.y * CELL_SIZE;
+  const sizeZ = GRID_DIMS.z * CELL_SIZE;
 
-    //for smooth camera motion
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.08; // < 0.2
+  const radius = 0.5 * Math.sqrt(sizeX ** 2 + sizeY ** 2 + sizeZ ** 2);
 
+  /* place camera on a pleasant diagonal */
+  const k = 2;                              // distance = k · radius
+  const dir = new THREE.Vector3(1, 0.6, 1).normalize();
+  cam.position.copy(dir).multiplyScalar(k * radius);
 
-    controls.update();
+  cam.near = 0.1;
+  cam.far  = radius * 6;
+  cam.updateProjectionMatrix();
 
-    return { cam, controls };
+  const controls = new OrbitControls(cam, rendererDom);
+  controls.target.set(0, 0, 0);               // center of voxel grid
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.update();
+
+  return { cam, controls };
 }

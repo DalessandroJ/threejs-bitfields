@@ -2,7 +2,7 @@
 
 import { createGPUVoxelMesh } from './gpu.js';
 import { createInstancedMesh } from './instanced.js';
-import { USE_GPU_VOXEL_MESH, GRID_DIM, CELL_SIZE } from '../../config.js';
+import { USE_GPU_VOXEL_MESH, GRID_DIMS, CELL_SIZE } from '../../config.js';
 
 
 export function createVoxelMesh(
@@ -20,8 +20,7 @@ export function createVoxelMesh(
         const mesh = createGPUVoxelMesh({
             instances,
             palette,
-            gridDim: GRID_DIM,        // X & Z
-            dimY: GRID_DIM * 2,    // Y
+            gridDims: GRID_DIMS,
             cellSize: CELL_SIZE,
             renderer,
             scene,

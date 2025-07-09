@@ -1,6 +1,6 @@
 // src/voxel/mesh/instancedMesh.js
 import * as THREE from 'three';
-import { GRID_DIM, CELL_SIZE } from '../../config.js';
+import { GRID_DIMS, CELL_SIZE } from '../../config.js';
 
 export function createInstancedMesh(instances, geometry, material) {
   // 1) Turn on vertexColors + instancing in the stock shader
@@ -47,9 +47,9 @@ export function createInstancedMesh(instances, geometry, material) {
 
     // 6a) matrix
     tmp.position.set(
-      (x - GRID_DIM/2) * CELL_SIZE,
-      (y - GRID_DIM/2) * CELL_SIZE,
-      (z - GRID_DIM/2) * CELL_SIZE
+      (x - GRID_DIMS.x/2) * CELL_SIZE,
+      (y - GRID_DIMS.y/2) * CELL_SIZE,
+      (z - GRID_DIMS.z/2) * CELL_SIZE
     );
     tmp.updateMatrix();
     tmp.matrix.toArray(matArr, i * 16);

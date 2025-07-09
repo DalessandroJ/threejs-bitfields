@@ -1,7 +1,18 @@
-// src/utils/paletteLoader.js
-import { randomInt } from './utils.js';
+// src/core/utils.js
 import { STATES_RANGE, TRANSPARENT_FACTOR, PALETTE_JSON } from '../config.js';
 
+// simple random helpers
+export function randomInt(min, max) {
+    if (min > max) [min, max] = [max, min];
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function randomFloat(min, max) {
+    if (min > max) [min, max] = [max, min];
+    return Math.random() * (max - min) + min;
+}
+
+// palette stuff
 // load all palettes from masterPalettes.json file
 export async function loadPalettes() {
     const resp = await fetch(PALETTE_JSON);
@@ -23,9 +34,17 @@ export function pickPalette(masterPalettes) {
     console.log(`Palette: ${chosen.name}`);
 
     // make sure each color string in the palette starts with '#'
-    const palette = chosen.colors.map(c =>
-        c.startsWith('#') ? c : `#${c}`
-    );
+    const palette = chosen.colors.map(c => (c.startsWith('#') ? c : `#${c}`));
 
     return { filled, transparent, palette };
+}
+
+// pick two different colors from the palette
+export function pickTwoDistinct(palette) {
+    const bg = palette[randomInt(0, palette.length - 1)];
+    let ground;
+    do {
+        ground = palette[randomInt(0, palette.length - 1)];
+    } while (ground === bg);
+    return { bg, ground };
 }
