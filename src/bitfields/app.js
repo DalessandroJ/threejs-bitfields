@@ -177,7 +177,7 @@ export default class App {
             filled: this._filled,
             transparent: this._transparent,
             totalStates: this._filled + this._transparent,
-            instanceCnt: this._instanceCnt
+            instanceCnt: this._instanceCnt ?? 0
         };
     }
 

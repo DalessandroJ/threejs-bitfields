@@ -26,7 +26,10 @@ export default function Stats({ engine }) {
         >
             <Stack spacing={0}>
                 <Text><strong>Palette:</strong> {stats.paletteName}</Text>
-                <Text><strong>Voxel Count:</strong> {stats.instanceCnt.toLocaleString()}</Text>
+                <Text>
+                    <strong>Voxel Count:</strong>{' '}
+                    {(stats.instanceCnt ?? 0).toLocaleString()}
+                </Text>
                 <Text>
                     <strong>States:</strong> {stats.transparent} transparent, {stats.filled} filled, {stats.totalStates} total
                 </Text>
