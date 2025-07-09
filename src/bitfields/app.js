@@ -114,7 +114,10 @@ export default class App {
         // ---- update ground plane ----
         const g = this.scene.userData.ground;
         if (g) {
-
+            // scale geometry in X/Z
+            const newSize = Math.max(GRID_DIMS.x, GRID_DIMS.z) * CELL_SIZE * 3;
+            g.geometry.dispose();
+            g.geometry = new THREE.PlaneGeometry(newSize, newSize);
 
             // move to new bottom
             g.position.y = -(GRID_DIMS.y * CELL_SIZE) / 2;
