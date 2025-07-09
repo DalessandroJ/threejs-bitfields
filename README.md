@@ -1,12 +1,38 @@
-# React + Vite
+# 3D Bitfields
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Generative voxel art created with bit-wise operations and modular arithmetic. Can render **millions** of voxels in real time!
 
-Currently, two official plugins are available:
+<div align="center">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| | |
+|---|---|
+| <img src="docs/img/3dbitfield1.PNG" width="320" alt="Bitfields screenshot 1" /> | <img src="docs/img/3dbitfield2.PNG" width="320" alt="Bitfields screenshot 2" /> |
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Live demo
+
+https://**dalessandroj**.github.io/**threejs-bitfields**
+
+---
+
+## Features
+
+* **GPU ray-marched voxels** (WebGL 2 + Three.js RawShaderMaterial)  
+* **Bitwise Boolean patterns** – 256 truth tables × spatial permutations  
+* **Dynamic grid sizing** (independent X / Y / Z)  
+* **One-click palette refresh & CSV export**  
+* **Responsive React controls** 
+* **Zero-config build** with Vite + GitHub Pages deploy
+
+---
+
+## Local development
+
+```bash
+git clone https://github.com/dalessandroj/threejs-bitfields
+cd threejs-bitfields
+npm install
+npm run dev      # open http://localhost:5173
