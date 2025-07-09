@@ -16,6 +16,5 @@ export function createRenderer(backgroundColor = '#202020') {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.shadowMap.autoUpdate = false;
     renderer.shadowMap.needsUpdate = true;
-    document.body.appendChild(renderer.domElement);
     return renderer;
 }

@@ -1,46 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>3D Bitfield</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-
-    canvas {
-      display: block;
-    }
-  </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- import-map so bare-module "three" resolves to the CDN module -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three":          "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
-        "three/":         "https://cdn.jsdelivr.net/npm/three@0.176.0/",
-        "three/examples/jsm/objects/": 
-      "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/objects/",
-      "three/examples/jsm/postprocessing/EffectComposer.js": 
-      "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/postprocessing/EffectComposer.js",
-    "three/examples/jsm/postprocessing/RenderPass.js":
-      "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/postprocessing/RenderPass.js",
-    "three/examples/jsm/postprocessing/UnrealBloomPass.js":
-      "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/postprocessing/UnrealBloomPass.js",
-    "three/examples/jsm/postprocessing/BokehPass.js":
-      "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/postprocessing/BokehPass.js"  
-      }
-    }
-    </script>
-
-</head>
-
-<body>
-  <!-- load your ES module entrypoint -->
-  <script type="module" src="./src/main.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

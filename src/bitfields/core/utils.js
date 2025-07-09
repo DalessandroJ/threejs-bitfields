@@ -36,7 +36,13 @@ export function pickPalette(masterPalettes) {
     // make sure each color string in the palette starts with '#'
     const palette = chosen.colors.map(c => (c.startsWith('#') ? c : `#${c}`));
 
-    return { filled, transparent, palette };
+    return {
+        filled,
+        transparent,
+        palette: palette,        // color array
+        paletteName: chosen.name // the name of the palette
+    };
+
 }
 
 // pick two different colors from the palette

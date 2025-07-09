@@ -56,5 +56,5 @@ export function buildVoxelWorld({
   );
 
   scene.add(mesh);
-  return { mesh, patternFn };
+  return { mesh, patternFn, instanceCount: instances.length };
 }

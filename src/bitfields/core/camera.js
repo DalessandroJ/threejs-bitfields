@@ -20,7 +20,7 @@ export function createCamera(rendererDom) {
   cam.position.copy(dir).multiplyScalar(k * radius);
 
   cam.near = 0.1;
-  cam.far  = radius * 6;
+  cam.far  = radius * 7;
   cam.updateProjectionMatrix();
 
   const controls = new OrbitControls(cam, rendererDom);

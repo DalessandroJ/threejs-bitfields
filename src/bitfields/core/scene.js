@@ -28,5 +28,6 @@ export async function createScene(groundColor = '#333333', renderer) {
   mesh.receiveShadow = true;
   scene.add(mesh);
 
+  scene.userData.ground = mesh;
   return scene;
 }
